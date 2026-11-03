@@ -1,0 +1,63 @@
+schema_version: "0.2"
+run_id: "<stable run id>"
+
+target:
+  revision: "<git revision>"
+  scope_ref: "<scope file or description>"
+  scope_size: small  # small | medium | large
+
+execution:
+  mode: economical  # strict | economical
+  orchestration: "<Claude Code Agent Team / other>"
+  model_runtime:
+    lead: "<model/runtime or unknown>"
+    specialists: "<model/runtime or unknown>"
+  started_at: "<timestamp or unknown>"
+  completed_at: "<timestamp or unknown>"
+  wall_clock: "<duration or unknown>"
+
+agents:
+  - id: LEAD-01
+    role: lead
+  - id: ARCH-01
+    role: architecture-cartographer
+  - id: DOM-01
+    role: domain-archaeologist
+  - id: DATA-01
+    role: data-integration-archaeologist
+  - id: TEST-01
+    role: test-archaeologist
+  - id: HIST-01
+    role: history-archaeologist
+  - id: RECON-01
+    role: reconstruction-archaeologist
+  - id: SKEP-01
+    role: architecture-skeptic
+
+optional_specialists: []
+
+phases:
+  discovery: complete
+  evidence: complete
+  reconstruction: complete
+  review: complete
+  finalization: complete
+
+gates:
+  G1: passed
+  G2: passed  # passed | failed | not-applicable
+  G3: passed
+
+interruptions: []
+# Example:
+# interruptions:
+#   - phase: review
+#     agent: SKEP-01
+#     reason: rate-limit
+#     resumed: true
+
+resumes: 0
+
+working_state:
+  directory: "docs/architecture-working"
+  checkpoint_file: "docs/architecture-working/phase-state.yaml"

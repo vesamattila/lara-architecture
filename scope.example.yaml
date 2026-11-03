@@ -1,0 +1,47 @@
+project:
+  name: example-system
+
+analysis:
+  source:
+    include:
+      - src/**
+      - tests/**
+      - migrations/**
+      - config/**
+    exclude:
+      - vendor/**
+      - node_modules/**
+      - generated/**
+      - build/**
+
+  # Optional areas that may be described structurally but are not part
+  # of the primary archaeology scope.
+  describe_only: []
+
+execution:
+  # economical reuses specialist context across Discovery -> Evidence
+  # behind an explicit phase barrier. strict starts fresh Phase 2 contexts.
+  mode: economical  # strict | economical
+
+history:
+  inspect_git: true
+
+# Empty means analyze all included areas.
+focus: []
+
+specialists:
+  # Add OPS when deployment/runtime topology may carry important invariants.
+  operations_deployment: auto  # auto | enabled | disabled
+
+review:
+  # Skeptics may leave the configured analysis scope to verify or falsify
+  # a claim. This does not expand the analyzed scope.
+  allow_out_of_scope_counterevidence: true
+  out_of_scope_access: read-only
+
+outputs:
+  directory: docs/architecture
+  working_directory: docs/architecture-working
+
+safety:
+  modify_target_code: false

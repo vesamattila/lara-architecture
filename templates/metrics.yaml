@@ -1,0 +1,60 @@
+schema_version: "0.2"
+run_id: "<same run id as run.yaml>"
+
+run:
+  scope: small  # small | medium | large
+  execution_mode: economical  # strict | economical
+  phases_completed: 5
+  agent_sessions: "<N or unknown>"
+
+artifacts:
+  evidence:
+    total: 0
+    current: 0
+    annotated: 0
+    superseded: 0
+  recovered_adrs: 0
+  constraints: 0
+  anomalies: 0
+  open_questions: 0
+
+review:
+  confirmed: 0
+  strengthened: 0
+  narrowed: 0
+  reclassified: 0
+  confidence_downgraded: 0
+  contradicted: 0
+  unresolved_challenge: 0
+  review_discovered_items: 0
+  independently_reviewed: 0
+  lead_verified: 0
+  unverified: 0
+
+corrections:
+  evidence_annotated: 0
+  evidence_superseded: 0
+  architecture_items_materially_changed_by_review: 0
+
+navigation:
+  items_total: 0
+  with_path_mapping: 0
+  module_only: 0
+  global_items: 0
+  coverage_warnings: 0
+
+quality:
+  evidence_traceability: medium  # low | medium | high
+  inference_discipline: medium
+  rationale_hallucination_risk: medium
+  adversarial_effectiveness: medium
+  output_usability: medium
+  duplication_level: medium
+  navigation_coverage: medium
+
+cost:
+  approximate_tokens: unknown
+  wall_clock: unknown
+
+recommendation:
+  run_another_pilot: yes  # yes | no

@@ -1,0 +1,56 @@
+run_id: "<stable run id>"
+target_revision: "<git revision>"
+execution_mode: strict  # strict | economical
+
+current_phase: discovery
+phase_status: in-progress  # not-started | in-progress | checkpointed | passed | failed | complete
+
+completed_gates: []
+# Example:
+# completed_gates:
+#   - gate: G1
+#     status: passed
+#     checked_by: LEAD-01
+
+agents:
+  LEAD-01:
+    role: lead
+    status: active
+    territory: orchestration
+    next_evidence_number: 1
+    next_annotation_number: 1
+    last_artifact: null
+
+  ARCH-01:
+    role: architecture-cartographer
+    status: active
+    territory: "<assigned territory>"
+    next_evidence_number: 1
+    next_annotation_number: 1
+    last_artifact: null
+
+pending_work:
+  - "<remaining work>"
+
+completed_work:
+  - "<completed checkpointed work>"
+
+partial_artifacts: []
+# Example:
+# partial_artifacts:
+#   - id: E-TEST-01-015
+#     path: docs/architecture/evidence/E-TEST-01-015.md
+#     action: finish | abandon
+
+interruptions: []
+# Example:
+# interruptions:
+#   - phase: evidence
+#     agent: TEST-01
+#     reason: rate-limit
+#     resumed: false
+
+last_checkpoint:
+  phase: discovery
+  reason: "<phase boundary | interruption | gate | manual>"
+  recorded_by: LEAD-01

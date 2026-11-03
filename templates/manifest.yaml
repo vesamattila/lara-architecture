@@ -1,0 +1,95 @@
+schema_version: "0.2"
+generated_from_revision: "<target git revision>"
+architecture_root: "docs/architecture"
+
+# Navigation metadata only.
+# Authoritative content remains in the referenced Markdown artifacts.
+items:
+  ADR-R001:
+    type: decision
+    title: "<recovered decision>"
+    artifact: "decisions/ADR-R001.md"
+    confidence: high
+    review_status: reviewed
+    verdict: CONFIRMED
+    territories:
+      paths:
+        - "src/example/**"
+      modules:
+        - "example-module"
+      cross_cutting: false
+    evidence:
+      - E-ARCH-01-001
+    related:
+      - CON-001
+
+  CON-001:
+    type: constraint
+    title: "<constraint>"
+    artifact: "constraints/CON-001.md"
+    confidence: high
+    review_status: reviewed
+    verdict: STRENGTHENED
+    territories:
+      paths: []
+      modules: []
+      cross_cutting: true
+    evidence:
+      - E-TEST-01-003
+    related:
+      - ADR-R001
+
+  ANO-001:
+    type: anomaly
+    title: "<anomaly>"
+    artifact: "anomalies/ANO-001.md"
+    confidence: medium
+    review_status: reviewed
+    verdict: NARROWED
+    territories:
+      paths:
+        - "src/example/legacy/**"
+      modules:
+        - "example-module"
+      cross_cutting: false
+    evidence:
+      - E-DOM-01-007
+    related: []
+
+  AQ-001:
+    type: question
+    title: "<open question>"
+    artifact: "questions/AQ-001.md"
+    confidence: unknown
+    review_status: unverified
+    verdict: null
+    territories:
+      paths: []
+      modules:
+        - "example-module"
+      cross_cutting: false
+    evidence:
+      - E-HIST-01-004
+    related: []
+
+path_index:
+  - pattern: "src/example/**"
+    modules:
+      - "example-module"
+    items:
+      - ADR-R001
+
+  - pattern: "src/example/legacy/**"
+    modules:
+      - "example-module"
+    items:
+      - ANO-001
+
+module_index:
+  example-module:
+    - ADR-R001
+    - ANO-001
+    - AQ-001
+
+global_items:
+  - CON-001

@@ -1,0 +1,33 @@
+# Local analysis scope overrides (the example remains source-controlled).
+/scope.yaml
+/scope.local.yaml
+/scope.*.local.yaml
+
+# Generated LARA run output in this repository.
+/docs/architecture/
+/docs/architecture-working/
+/.lara/
+/lara-output/
+
+# Credentials and local environment files.
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+credentials.json
+secrets.yaml
+secrets.yml
+
+# Common editor, OS, cache, and test output.
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
